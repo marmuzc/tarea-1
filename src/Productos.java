@@ -1,14 +1,16 @@
-public enum Productos {
-    COCA(1),
-    SPRITE(2);
+public abstract class Productos{
+    private int serie;
 
-    private final int codigoProducto;
-
-    Productos(int codigoProducto) {
-        this.codigoProducto = codigoProducto;
+    public Productos(int numSerie) {
+        this.serie = numSerie;
     }
 
-    public int getCodigoProducto() {
-        return codigoProducto;
+    public int getSerie() {
+        return serie;
+    }
+    public abstract String getNombre();
+
+    public String toString() {
+        return "Nombre: " + this.getNombre() + " Serie: " + this.getSerie() + ".";
     }
 }
