@@ -5,6 +5,8 @@ class Expendedor {
     private Deposito sprite;
     private Deposito snickers;
     private Deposito super8;
+    private int pagoUsuario;
+    private Productos producto;
 
     public Expendedor(int numProductos, int precioProductos) {
         this.precio = precioProductos;
@@ -23,85 +25,69 @@ class Expendedor {
     }
 
     public Productos comprarProducto(Moneda m, productosEnum cual) {
+        pagoUsuario = m.getValor(); //el pago del usuario sera la moneda recibica
 
-/*
-        if (m == null) {
-            return null;
+        Productos productoComprado = null; //comenzaos sin producto comprado
+
+        switch (cual) {
+            case COCA:
+                productoComprado = coca.getProducto();
+                break;
+            case SPRITE:
+                productoComprado = sprite.getProducto();
+                break;
+            case SNICKERS:
+                productoComprado = snickers.getProducto();
+                break;
+            case SUPER8:
+                productoComprado = super8.getProducto();
+                break;
+            default:
+                return null; // producto no encontrado
         }
 
-        int valorMoneda = m.getValor();
-        Bebida bebidaComprada = null;
+        if (m == null){
+            return null; //aqui excepcion quitar el retorno de vuelto
+        }
 
-        if (valorMoneda < this.precio) { //si el valor de la moneda es menor al precio de la bebida
-            while (valorMoneda != 0) { //entregamos el vuelto
-                monVu.addMoneda(new Moneda100());
-                valorMoneda = valorMoneda - 100;
-            }
-            return null;
-        } else {
-            if (cual == Productos.COCA) { //si se elige coca
-                bebidaComprada = coca.getBebida(); //creamos la bebida b coca
-                if (bebidaComprada != null) { //si la bebida no es null
-                    if (valorMoneda == this.precio) { //si el valor de la moneda es igual al precio
-                        return bebidaComprada; //retornamos la bebida
-                    } else { //en otro caso
-                        valorMoneda = valorMoneda - this.precio; //el valor de la moneda es igual al valor de la moneda menos el precio
-                        while (valorMoneda != 0) {
-                            monVu.addMoneda(new Moneda100());
-                            valorMoneda = valorMoneda - 100;
-                        }
-                        return bebidaComprada;  //retornamos la bebida
-                    }
-                } else {
-                    while (valorMoneda != 0) {
-                        monVu.addMoneda(new Moneda100());
-                        valorMoneda = valorMoneda - 100;
-                    }
-                    return null;
-                }
-            } else if (cual == Productos.SPRITE) {
-                bebidaComprada = sprite.getBebida();
-                if (bebidaComprada != null) {
-                    if (valorMoneda == this.precio) {
-                        return bebidaComprada;
-                    } else {
-                        valorMoneda = valorMoneda - this.precio;
-                        while (valorMoneda != 0) {
-                            monVu.addMoneda(new Moneda100());
-                            valorMoneda = valorMoneda - 100;
-                        }
-                        return bebidaComprada;
-                    }
-                } else {
-                    while (valorMoneda != 0) {
-                        monVu.addMoneda(new Moneda100());
-                        valorMoneda = valorMoneda - 100;
-                    }
-                    return null;
-                }
-            } else if (cual != Productos.COCA && cual != Productos.SPRITE) {
-                while (valorMoneda != 0) {
-                    monVu.addMoneda(new Moneda100());
-                    valorMoneda = valorMoneda - 100;
-                }
-                return null;
-            }
-            return null;
+        if (pagoUsuario < this.precio) {
+            devolverVuelto(pagoUsuario); // Entregamos el vuelto
+            return null; // No se puede comprar
+        }
+
+        // Si se ha comprado una bebida
+        if (productoComprado != null) {
+            pagoUsuario -= this.precio; // Resta el precio de la bebida
+            devolverVuelto(pagoUsuario); // Entrega el vuelto
+            this.producto = productoComprado; // Almacena el producto comprado
+            return productoComprado; // Retorna la bebida comprada
+        } else { //si no hay producto/no se elige producto
+            devolverVuelto(pagoUsuario); // Entregamos el vuelto si la bebida no está disponible //excepcion no hay producto
+            return null; // No se puede comprar
         }
     }
+
+    private void devolverVuelto(int valorMoneda) { //devolver el vuelto en monedas de 100
+        while (valorMoneda != 0) {
+            monVu.addMoneda(new Moneda100());
+            valorMoneda -= 100;
+        }
+    }
+
     public Moneda getVuelto() {
         return monVu.getMoneda();
     }
 
-}
-*/
-
-class Verificar{
-    public Verificar(Moneda cantidad, productosEnum cual){
-
+/*    public Productos verificarCompra(Moneda cantidad, productosEnum cual) {
+        if (cantidad != null) {
+            this.pagoUsuario = cantidad.getValor();
+        } else {
+            this.pagoUsuario = 0;
+            this.producto = null; // Resetear el producto
+        }
+        return producto; // Retorna el producto almacenado
     }
-
-
-
-
+    public Productos devolverProducto() {
+        return producto; // Retorna el último producto comprado
+    }*/
 }
