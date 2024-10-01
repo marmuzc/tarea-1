@@ -1,4 +1,9 @@
-package PACKAGE_NAME;
+public class Super8 extends Dulces {
+    public Super8(int serie) {
+        super(serie);
+    }
 
-public class Super8 {
+    public String getNombre() {
+        return "Super8";
+    }
 }

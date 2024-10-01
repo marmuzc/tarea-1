@@ -1,9 +1,9 @@
-class CocaCola extends Bebida {
+public class CocaCola extends Bebida {
     public CocaCola(int serie) {
         super(serie);
     }
 
-    public String beber() {
-        return "cocacola";
+    public String getNombre() {
+        return "Cocacola";
     }
 }

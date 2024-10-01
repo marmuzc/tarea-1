@@ -1,4 +1,8 @@
-package PACKAGE_NAME;
+public abstract class Dulces extends Productos {
+    private int serie;
 
-public class Dulces {
+    public Dulces(int numSerie) {
+        super(numSerie);
+    }
 }
+

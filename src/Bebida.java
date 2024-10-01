@@ -1,4 +1,7 @@
-package PACKAGE_NAME;
+public abstract class Bebida extends Productos {
+    private int serie;
 
-public class Bebida {
+    public Bebida(int numSerie) {
+        super(numSerie);
+    }
 }

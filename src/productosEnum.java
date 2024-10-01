@@ -1,4 +1,37 @@
-package PACKAGE_NAME;
+public enum productosEnum {
+    COCA(1, 1000),
+    SPRITE(2, 1200),
+    SUPER8(3, 400),
+    SNICKERS(4, 500);
 
-public class productosEnum {
+    private int codigoProducto;
+    private int precio;
+
+    productosEnum(int codigo, int precio) {
+        this.codigoProducto = codigoProducto;
+        this.precio = precio;
+    }
+
+    public int getCodigoProducto() {
+        return this.codigoProducto;
+    }
+
+    public int getPrecio() {
+        return this.precio;
+    }
+
+    public String getNombre() {
+        switch (codigoProducto) {
+            case 1:
+                return "COCACOLA";
+            case 2:
+                return "SPRITE";
+            case 3:
+                return "SUPER8";
+            case 4:
+                return "SNICKERS";
+            default:
+                return "Null";
+        }
+    }
 }

@@ -1,7 +1,7 @@
 class Expendedor {
 
-    private DepositoM monVu;
     private int precio;
+    private DepositoM monVu;
     private Deposito coca;
     private Deposito sprite;
 

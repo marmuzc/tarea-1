@@ -1,4 +1,9 @@
-package PACKAGE_NAME;
+public class Snickers extends Dulces {
+    public Snickers(int serie) {
+        super(serie);
+    }
 
-public class Snickers {
+    public String getNombre() {
+        return "Snickers";
+    }
 }
