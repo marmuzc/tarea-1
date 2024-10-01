@@ -1,24 +1,30 @@
 class Expendedor {
-
     private int precio;
     private DepositoM monVu;
     private Deposito coca;
     private Deposito sprite;
+    private Deposito snickers;
+    private Deposito super8;
 
-    public Expendedor(int numBebidas, int precioBebida) {
-        this.precio = precioBebida;
+    public Expendedor(int numProductos, int precioProductos) {
+        this.precio = precioProductos;
         this.coca = new Deposito();
         this.sprite = new Deposito();
+        this.snickers = new Deposito();
+        this.super8 = new Deposito();
         this.monVu = new DepositoM();
 
-        for (int i = 0; i < numBebidas; i++) {
-            coca.addBebida(new CocaCola(100 + i));
-            sprite.addBebida(new Sprite(200 + i));
+        for (int i = 0; i < numProductos; i++) {
+            coca.addProducto(new CocaCola(100 + i));
+            sprite.addProducto(new Sprite(200 + i));
+            snickers.addProducto(new Snickers(300 + i));
+            super8.addProducto(new Super8(400 + i));
         }
     }
 
+    public Productos comprarProducto(Moneda m, productosEnum cual) {
 
-    public Bebida comprarBebida(Moneda m, Productos cual) {
+/*
         if (m == null) {
             return null;
         }
@@ -86,5 +92,16 @@ class Expendedor {
     public Moneda getVuelto() {
         return monVu.getMoneda();
     }
+
+}
+*/
+
+class Verificar{
+    public Verificar(Moneda cantidad, productosEnum cual){
+
+    }
+
+
+
 
 }
