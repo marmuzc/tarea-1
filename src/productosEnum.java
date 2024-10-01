@@ -8,7 +8,7 @@ public enum productosEnum {
     private int precio;
 
     productosEnum(int codigo, int precio) {
-        this.codigoProducto = codigoProducto;
+        this.codigoProducto = codigo;
         this.precio = precio;
     }
 
