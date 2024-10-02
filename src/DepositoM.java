@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import Monedas.*;
+
 class DepositoM {
     private ArrayList<Moneda> monedas;
 

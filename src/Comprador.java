@@ -1,4 +1,6 @@
 import Excepciones.*;
+import Monedas.*;
+import Productos.*;
 
 class Comprador {
  //   private String sonido;

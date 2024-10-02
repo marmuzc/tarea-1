@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import Productos.*;
+
 class Deposito {
     private ArrayList<Productos> productos;
 
