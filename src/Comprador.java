@@ -32,7 +32,7 @@ class Comprador {
     public int cuantoVuelto() {
         return vuelto;
     }
-
+    //Agregar sonidos
    // public String queBebiste() {
        // return sonido;
     //}

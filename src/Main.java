@@ -2,7 +2,7 @@ import Excepciones.*;
 
 public class Main {
     public static void main(String[] args) {
-        
+        //Revisar si estan manejados todos los casos
         System.out.println("======   Caso 1  ======");
         Expendedor exp1 = new Expendedor(5, 300);
         Moneda m1 = new Moneda1000();

@@ -55,7 +55,7 @@ class Expendedor {
 
         if (pagoUsuario < this.precio) {
             devolverVuelto(pagoUsuario); // Entregamos el vuelto
-            throw new PagoInsuficienteException("Error al comprar, pago insuficiente"); // No se puede comprar
+            throw new PagoInsuficienteException("Error al comprar, pago insuficiente");
         }
 
         // Si se ha comprado una bebida
