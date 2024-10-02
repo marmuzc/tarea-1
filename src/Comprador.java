@@ -1,11 +1,13 @@
+import Excepciones.*;
+
 class Comprador {
  //   private String sonido;
     private int vuelto;
 
-    public Comprador(Moneda m, Productos cualBebida, Expendedor exp) {
-        Bebida bebida = exp.comprarBebida(m, cualBebida);
+    public Comprador(Moneda m, productosEnum cualProducto, Expendedor exp) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException{
+        Productos producto = exp.comprarProducto(m, cualProducto);
         vuelto = 0;
-        if (bebida != null) { //si la bebida no es null
+        if (producto != null) { //si el producto no es null
             m = exp.getVuelto(); //la moneda recibida m del deposito vuelto
             while (m != null) { //mientras hayan monedas en el deposito
                 vuelto = vuelto + m.getValor(); //el vuelto es igual al vuelto mas el valor de la moneda
@@ -17,7 +19,7 @@ class Comprador {
                 vuelto = 0;//vuelto es 0
               //  sonido = null;
             } else {
-                m = exp.getVuelto(); //en el caso de que la bebida sea null, m es igual al vuelto
+                m = exp.getVuelto(); //en el caso de que el producto sea null, m es igual al vuelto
                 while (m != null) { //mientras hayan monedas en el deposito
                     vuelto = vuelto + m.getValor();
                     m = exp.getVuelto();
