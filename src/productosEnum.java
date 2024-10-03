@@ -34,4 +34,13 @@ public enum productosEnum {
                 return "Null";
         }
     }
+
+    public static productosEnum getProductoPorCodigo(int codigo) {
+        for (productosEnum producto : productosEnum.values()) {
+            if (producto.getCodigoProducto() == codigo) {
+                return producto;
+            }
+        }
+        return null;
+    }
 }
