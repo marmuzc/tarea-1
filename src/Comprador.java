@@ -38,7 +38,7 @@ class Comprador {
                 m = exp.getVuelto();  // En el caso de que el producto sea null, obtiene el vuelto
                 while (m != null) {  // Mientras haya monedas en el depósito
                     vuelto = vuelto + m.getValor();  // Suma el valor de las monedas al vuelto total
-                    m = exp.getVuelto();
+                    m = exp.getVuelto(); // Sigue obteniendo el vuelto mientras haya monedas
                 }
             }
         }

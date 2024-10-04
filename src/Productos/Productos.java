@@ -32,7 +32,7 @@ public abstract class Productos {
     public abstract String getNombre();
 
     @Override
-    public String toString() { // Se sobreescribe el método toString para que muestre el nombre y la serie del producto.
+    public String toString() {
         return "Nombre: " + this.getNombre() + " Serie: " + this.getSerie() + ".";
     }
 }
