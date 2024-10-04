@@ -1,22 +1,36 @@
 import java.util.ArrayList;
-
 import Monedas.*;
+import Productos.Productos;
 
-class DepositoM {
-    private ArrayList<Moneda> monedas;
+/**
+ * Clase que representa un depósito especializado en monedas.
+ * Hereda de la clase genérica {@code Deposito} para manejar objetos del tipo {@code Moneda}.
+ */
+class DepositoM extends Deposito<Moneda> {
 
+    /**
+     * Constructor de la clase {@code DepositoM}.
+     * Inicializa el depósito de monedas llamando al constructor de la clase padre.
+     */
     public DepositoM() {
-        this.monedas = new ArrayList<>();
+        super();
     }
 
-    public void addMoneda(Moneda m) {
-        monedas.add(m);
+    /**
+     * Agrega una moneda al depósito.
+     *
+     * @param moneda La moneda que se desea agregar al depósito.
+     */
+    public void addMoneda(Moneda moneda) {
+        super.addDeposito(moneda);  // Utiliza el método de la clase padre para agregar una moneda
     }
 
+    /**
+     * Obtiene y remueve la primera moneda del depósito.
+     *
+     * @return La primera moneda en el depósito, o {@code null} si el depósito está vacío.
+     */
     public Moneda getMoneda() {
-        if (monedas != null && !monedas.isEmpty()) {
-            return monedas.remove(0);
-        }
-        return null;
+        return super.getProducto();  // Utiliza el método de la clase padre para obtener una moneda
     }
 }
