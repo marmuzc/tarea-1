@@ -1,5 +1,5 @@
+package Depositos;
 import Productos.*;
-import java.util.ArrayList;
 
 /**
  * Clase que representa un depósito especializado en productos.

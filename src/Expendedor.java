@@ -1,3 +1,4 @@
+import Depositos.*;
 import Excepciones.*;
 import Monedas.*;
 import Productos.*;
@@ -22,8 +23,8 @@ class Expendedor {
      * @param numProductos Número de productos de cada tipo a cargar en el expendedor.
      * @param precioProductos Precio unitario de los productos.
      */
-    public Expendedor(int numProductos, int precioProductos) {
-        this.precio = precioProductos;
+    public Expendedor(int numProductos) {
+        this.precio = 0;
         this.coca = new DepositoP();
         this.sprite = new DepositoP();
         this.snickers = new DepositoP();
@@ -64,15 +65,19 @@ class Expendedor {
         switch (cual) {
             case COCA:
                 productoComprado = coca.getProducto();
+                precio = productosEnum.COCA.getPrecio();
                 break;
             case SPRITE:
                 productoComprado = sprite.getProducto();
+                precio = productosEnum.SPRITE.getPrecio();
                 break;
             case SNICKERS:
                 productoComprado = snickers.getProducto();
+                precio = productosEnum.SNICKERS.getPrecio();
                 break;
             case SUPER8:
                 productoComprado = super8.getProducto();
+                precio = productosEnum.SUPER8.getPrecio();
                 break;
             default:
                 return null;  // Producto no encontrado

@@ -1,6 +1,5 @@
 import Excepciones.*;
 import Monedas.*;
-import Productos.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -29,20 +28,15 @@ public class Main {
 
 
         //Revisar si estan manejados todos los casos
-        System.out.println("======   Caso 1  ======");
-        Expendedor exp1 = new Expendedor(5, 300);//arreglar esto aqui no debe ir precio se debe llamar a enum
+        System.out.println("==========   Caso 1  ==========");
+        Expendedor exp1 = new Expendedor(5);
         Moneda m1 = new Moneda1000();
 
-        int codigoProducto = 1;
-        productosEnum productoSeleccionado = productosEnum.getProductoPorCodigo(codigoProducto);
-
         try {
-            Comprador c = new Comprador(m1, productoSeleccionado, exp1);
-            Productos productoComprado = exp1.comprarProducto(m1, productoSeleccionado);
-            int vuelto = c.cuantoVuelto();
-            System.out.println("Vuelto: " + vuelto);
+            Comprador c = new Comprador(m1, productosEnum.COCA, exp1);
             System.out.println("El sabor del producto es: " + c.getSaborProducto());
-            System.out.println(productoComprado);
+            System.out.println("Vuelto: " + c.cuantoVuelto());
+
 
         } catch (PagoIncorrectoException e) {
             // Manejo de la excepción de pago incorrecto
@@ -57,16 +51,13 @@ public class Main {
             System.out.println("Vuelto: " + m1.getValor());
         }
         
-        System.out.println("======   Caso 2  ======");
-        Expendedor exp2 = new Expendedor(5, 300);
+        System.out.println("==========   Caso 2  ==========");
+        Expendedor exp2 = new Expendedor(5);
         Moneda m2 = new Moneda1000();
         try {
-            Comprador c = new Comprador(null, productoSeleccionado, exp2);
-            Productos productoComprado = exp2.comprarProducto(m2, productoSeleccionado);
-            int vuelto = c.cuantoVuelto();
-            System.out.println("Vuelto: " + vuelto);
+            Comprador c = new Comprador(null, productosEnum.COCA, exp2);
+            System.out.println("Vuelto: " + c.cuantoVuelto());
             System.out.println("El sabor del producto es: " + c.getSaborProducto());
-            System.out.println(productoComprado);
 
         } catch (PagoIncorrectoException e) {
             // Manejo de la excepción de pago incorrecto
@@ -81,16 +72,13 @@ public class Main {
             System.out.println("Vuelto: " + m2.getValor());
         }
         
-        System.out.println("======   Caso 3  ======");
-        Expendedor exp3 = new Expendedor(0, 300);
+        System.out.println("==========   Caso 3  ==========");
+        Expendedor exp3 = new Expendedor(0);
         Moneda m3 = new Moneda1000();
         try {
-            Comprador c = new Comprador(m3, productoSeleccionado, exp3);
-            Productos productoComprado = exp3.comprarProducto(m3, productoSeleccionado);
-            int vuelto = c.cuantoVuelto();
-            System.out.println("Vuelto: " + vuelto);
+            Comprador c = new Comprador(m3, productosEnum.COCA, exp3);
+            System.out.println("Vuelto: " + c.cuantoVuelto());
             System.out.println("El sabor del producto es: " + c.getSaborProducto());
-            System.out.println(productoComprado);
 
         } catch (PagoIncorrectoException e) {
             // Manejo de la excepción de pago incorrecto
@@ -105,16 +93,13 @@ public class Main {
             System.out.println("Vuelto: " + m3.getValor());
         }
         
-        System.out.println("======   Caso 4  ======");
-        Expendedor exp4 = new Expendedor(5, 300);
+        System.out.println("==========   Caso 4  ==========");
+        Expendedor exp4 = new Expendedor(5);
         Moneda m4 = new Moneda100();
         try {
-            Comprador c = new Comprador(m4, productoSeleccionado, exp4);
-            Productos productoComprado = exp4.comprarProducto(m4, productoSeleccionado);
-            int vuelto = c.cuantoVuelto();
-            System.out.println("Vuelto: " + vuelto);
+            Comprador c = new Comprador(m4, productosEnum.COCA, exp4);
+            System.out.println("Vuelto: " + c.cuantoVuelto());
             System.out.println("El sabor del producto es: " + c.getSaborProducto());
-            System.out.println(productoComprado);
 
         } catch (PagoIncorrectoException e) {
             // Manejo de la excepción de pago incorrecto

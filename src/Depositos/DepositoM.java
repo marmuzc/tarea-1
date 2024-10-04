@@ -1,12 +1,11 @@
-import java.util.ArrayList;
+package Depositos;
 import Monedas.*;
-import Productos.Productos;
 
 /**
  * Clase que representa un depósito especializado en monedas.
  * Hereda de la clase genérica {@code Deposito} para manejar objetos del tipo {@code Moneda}.
  */
-class DepositoM extends Deposito<Moneda> {
+public class DepositoM extends Deposito<Moneda> {
 
     /**
      * Constructor de la clase {@code DepositoM}.

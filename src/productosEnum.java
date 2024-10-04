@@ -3,7 +3,7 @@
  */
 public enum productosEnum {
     COCA(1, 1000),
-    SPRITE(2, 1200),
+    SPRITE(2, 900),
     SUPER8(3, 400),
     SNICKERS(4, 500);
 
