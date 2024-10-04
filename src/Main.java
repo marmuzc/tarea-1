@@ -30,7 +30,7 @@ public class Main {
 
         //Revisar si estan manejados todos los casos
         System.out.println("======   Caso 1  ======");
-        Expendedor exp1 = new Expendedor(5, 300);
+        Expendedor exp1 = new Expendedor(5, 300);//arreglar esto aqui no debe ir precio se debe llamar a enum
         Moneda m1 = new Moneda1000();
 
         int codigoProducto = 1;
