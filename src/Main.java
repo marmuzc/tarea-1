@@ -11,9 +11,12 @@ public class Main {
         List<Moneda> monedas = new ArrayList<>();
         monedas.add(new Moneda1000());
         monedas.add(new Moneda100());
+        monedas.add(new Moneda1000());
+        monedas.add(new Moneda500());
+        monedas.add(new Moneda1000());
         monedas.add(new Moneda500());
 
-        System.out.println("Monedas antes de ordenar:");
+        System.out.println("=====   Monedas antes de ordenar    =====");
         for (Moneda m : monedas) {
             System.out.println(m); // Imprime valor y número de serie
         }
@@ -21,7 +24,7 @@ public class Main {
         // Ordenar la lista de monedas por su valor
         Collections.sort(monedas);
 
-        System.out.println("Monedas después de ordenar:");
+        System.out.println("=====   Monedas después de ordenar =====");
         for (Moneda m : monedas) {
             System.out.println(m); // Imprime valor y número de serie
         }
@@ -30,7 +33,7 @@ public class Main {
         //Revisar si estan manejados todos los casos
         System.out.println("==========   Caso 1  ==========");
         Expendedor exp1 = new Expendedor(5);
-        Moneda m1 = new Moneda1000();
+        Moneda m1 = monedas.remove(0);
 
         try {
             Comprador c = new Comprador(m1, productosEnum.COCA, exp1);
@@ -53,11 +56,11 @@ public class Main {
         
         System.out.println("==========   Caso 2  ==========");
         Expendedor exp2 = new Expendedor(5);
-        Moneda m2 = new Moneda1000();
+        Moneda m2 = null;
         try {
-            Comprador c = new Comprador(null, productosEnum.COCA, exp2);
-            System.out.println("Vuelto: " + c.cuantoVuelto());
+            Comprador c = new Comprador(m2, productosEnum.COCA, exp2);
             System.out.println("El sabor del producto es: " + c.getSaborProducto());
+            System.out.println("Vuelto: " + c.cuantoVuelto());
 
         } catch (PagoIncorrectoException e) {
             // Manejo de la excepción de pago incorrecto
@@ -74,11 +77,11 @@ public class Main {
         
         System.out.println("==========   Caso 3  ==========");
         Expendedor exp3 = new Expendedor(0);
-        Moneda m3 = new Moneda1000();
+        Moneda m3 = monedas.remove(0);
         try {
-            Comprador c = new Comprador(m3, productosEnum.COCA, exp3);
-            System.out.println("Vuelto: " + c.cuantoVuelto());
+            Comprador c = new Comprador(m3, productosEnum.SNICKERS, exp3);
             System.out.println("El sabor del producto es: " + c.getSaborProducto());
+            System.out.println("Vuelto: " + c.cuantoVuelto());
 
         } catch (PagoIncorrectoException e) {
             // Manejo de la excepción de pago incorrecto
@@ -95,11 +98,11 @@ public class Main {
         
         System.out.println("==========   Caso 4  ==========");
         Expendedor exp4 = new Expendedor(5);
-        Moneda m4 = new Moneda100();
+        Moneda m4 = monedas.remove(0);
         try {
-            Comprador c = new Comprador(m4, productosEnum.COCA, exp4);
-            System.out.println("Vuelto: " + c.cuantoVuelto());
+            Comprador c = new Comprador(m4, productosEnum.SUPER8, exp4);
             System.out.println("El sabor del producto es: " + c.getSaborProducto());
+            System.out.println("Vuelto: " + c.cuantoVuelto());
 
         } catch (PagoIncorrectoException e) {
             // Manejo de la excepción de pago incorrecto
@@ -112,7 +115,70 @@ public class Main {
             // Manejo de la excepción si el pago es insuficiente
             System.out.println(e.getMessage());
             System.out.println("Vuelto: " + m4.getValor());
-        }        
+        }
+
+        System.out.println("==========   Caso 5  ==========");
+        Expendedor exp5 = new Expendedor(5);
+        Moneda m5 = monedas.remove(0);
+        try {
+            Comprador c = new Comprador(m5, productosEnum.SNICKERS, exp5);
+            System.out.println("El sabor del producto es: " + c.getSaborProducto());
+            System.out.println("Vuelto: " + c.cuantoVuelto());
+
+        } catch (PagoIncorrectoException e) {
+            // Manejo de la excepción de pago incorrecto
+            System.out.println(e.getMessage());
+        } catch (NoHayProductoException e) {
+            // Manejo de la excepción si el producto no está disponible
+           System.out.println(e.getMessage());
+           System.out.println("Vuelto: " + m5.getValor());
+        } catch (PagoInsuficienteException e) {
+            // Manejo de la excepción si el pago es insuficiente
+            System.out.println(e.getMessage());
+            System.out.println("Vuelto: " + m5.getValor());
+        }
+
+        System.out.println("==========   Caso 4  ==========");
+        Expendedor exp6 = new Expendedor(5);
+        Moneda m6 = monedas.remove(0);
+        try {
+            Comprador c = new Comprador(m6, productosEnum.SPRITE, exp6);
+            System.out.println("El sabor del producto es: " + c.getSaborProducto());
+            System.out.println("Vuelto: " + c.cuantoVuelto());
+
+        } catch (PagoIncorrectoException e) {
+            // Manejo de la excepción de pago incorrecto
+            System.out.println(e.getMessage());
+        } catch (NoHayProductoException e) {
+            // Manejo de la excepción si el producto no está disponible
+           System.out.println(e.getMessage());
+           System.out.println("Vuelto: " + m6.getValor());
+        } catch (PagoInsuficienteException e) {
+            // Manejo de la excepción si el pago es insuficiente
+            System.out.println(e.getMessage());
+            System.out.println("Vuelto: " + m6.getValor());
+        }
+
+        System.out.println("==========   Caso 7  ==========");
+        Expendedor exp7 = new Expendedor(5);
+        Moneda m7 = monedas.remove(0);
+        try {
+            Comprador c = new Comprador(m7, productosEnum.COCA, exp7);
+            System.out.println("El sabor del producto es: " + c.getSaborProducto());
+            System.out.println("Vuelto: " + c.cuantoVuelto());
+
+        } catch (PagoIncorrectoException e) {
+            // Manejo de la excepción de pago incorrecto
+            System.out.println(e.getMessage());
+        } catch (NoHayProductoException e) {
+            // Manejo de la excepción si el producto no está disponible
+           System.out.println(e.getMessage());
+           System.out.println("Vuelto: " + m7.getValor());
+        } catch (PagoInsuficienteException e) {
+            // Manejo de la excepción si el pago es insuficiente
+            System.out.println(e.getMessage());
+            System.out.println("Vuelto: " + m7.getValor());
+        } 
     }
 }
 

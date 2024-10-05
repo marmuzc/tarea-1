@@ -58,19 +58,4 @@ public enum productosEnum {
                 return "Null";
         }
     }
-
-    /**
-     * Obtiene el producto basado en su código.
-     *
-     * @param codigo El código del producto.
-     * @return El producto correspondiente al código, o null si no se encuentra.
-     */
-    public static productosEnum getProductoPorCodigo(int codigo) {
-        for (productosEnum producto : productosEnum.values()) {
-            if (producto.getCodigoProducto() == codigo) {
-                return producto;
-            }
-        }
-        return null;
-    }
 }
