@@ -1,3 +1,4 @@
+package Productos;
 public class Snickers extends Dulces {
     public Snickers(int serie) {
         super(serie);
